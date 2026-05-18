@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+@theme {
+  --color-main-pink: #DE86AB;
+  --color-soft-pink: #E99FC1;
+  --color-bright-pink: #DC2A88;
+  --color-white-bg: #EEEDEE;
+  --color-cream-beige: #DAC9C3;
+  --color-dark-maroon: #61435D;
+  --color-grey-lavender: #95949E;
+  --color-rose-pink: #E04F97;
+
+  --font-sans: "Outfit", system-ui, sans-serif;
+  --font-serif: "Playfair Display", Georgia, serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-white-bg text-dark-maroon font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif font-medium;
+  }
+}
+
+@layer utilities {
+  .glass-effect {
+    @apply bg-white/80 backdrop-blur-md border border-white/20 shadow-[0_8px_30px_rgb(0,0,0,0.04)];
+  }
+  
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-bright-pink to-rose-pink;
+  }
+  
+  .hover-lift {
+    @apply transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl;
+  }
+}
