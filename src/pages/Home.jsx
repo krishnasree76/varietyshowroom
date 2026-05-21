@@ -59,7 +59,7 @@ export const Home = () => {
 </div>
 
           {/* Right Image */}
-          <div className="w-2/5 flex justify-center translate-y-8">
+          <div className="w-2/5 flex justify-center translate-x-4 translate-y-6">
   <Link to="/shop">
     <div className="w-[100px] h-[140px] overflow-hidden rounded shadow-xl">
       <img
