@@ -32,7 +32,7 @@ export const ProductDetails = () => {
     fetchProduct();
   }, [id]);
 
-  if (loading) return <div className="min-h-screen pt-32 pb-24 flex justify-center"><div className="animate-pulse w-10 h-10 border-4 border-bright-pink rounded-full border-t-transparent animate-spin"></div></div>;
+  if (loading) return <div className="min-h-screen pt-32 pb-24 flex justify-center"><div className="animate-pulse w-10 h-10 border-4 border-maroon-light rounded-full border-t-transparent animate-spin"></div></div>;
   if (!product) return <div className="min-h-screen pt-32 text-center"><h1 className="text-2xl font-serif">Product Not Found</h1></div>;
 
   const isWishlisted = wishlist.some(item => item.id === product.id);
@@ -56,12 +56,12 @@ export const ProductDetails = () => {
       <div className="container mx-auto px-4">
         
         {/* Breadcrumb */}
-        <div className="flex items-center space-x-2 text-sm text-grey-lavender mb-8">
-          <Link to="/" className="hover:text-bright-pink">Home</Link>
+        <div className="flex items-center space-x-2 text-sm text-muted-maroon mb-8">
+          <Link to="/" className="hover:text-maroon-light">Home</Link>
           <ChevronRight size={14} />
-          <Link to="/shop" className="hover:text-bright-pink">Shop</Link>
+          <Link to="/shop" className="hover:text-maroon-light">Shop</Link>
           <ChevronRight size={14} />
-          <Link to={`/category/${product.category_name?.toLowerCase()}`} className="hover:text-bright-pink">{product.category_name}</Link>
+          <Link to={`/category/${product.category_name?.toLowerCase()}`} className="hover:text-maroon-light">{product.category_name}</Link>
           <ChevronRight size={14} />
           <span className="text-dark-maroon truncate max-w-[200px]">{product.name}</span>
         </div>
@@ -76,7 +76,7 @@ export const ProductDetails = () => {
                 <button 
                   key={idx}
                   onClick={() => setActiveImage(idx)}
-                  className={`relative aspect-[3/4] rounded-lg overflow-hidden border-2 transition-colors ${activeImage === idx ? 'border-bright-pink' : 'border-transparent hover:border-cream-beige'}`}
+                  className={`relative aspect-[3/4] rounded-lg overflow-hidden border-2 transition-colors ${activeImage === idx ? 'border-maroon-light' : 'border-transparent hover:border-cream-beige'}`}
                 >
                   <img src={img.image} alt="" className="w-full h-full object-cover" />
                 </button>
@@ -101,7 +101,7 @@ export const ProductDetails = () => {
               <button 
                 onClick={() => toggleWishlist(product)}
                 className={`absolute top-4 right-4 w-12 h-12 rounded-full flex items-center justify-center bg-white shadow-lg transition-colors z-10 ${
-                  isWishlisted ? 'text-rose-pink' : 'text-dark-maroon hover:text-bright-pink'
+                  isWishlisted ? 'text-maroon-light' : 'text-dark-maroon hover:text-maroon-light'
                 }`}
               >
                 <Heart size={24} fill={isWishlisted ? "currentColor" : "none"} />
@@ -112,14 +112,14 @@ export const ProductDetails = () => {
           {/* Product Details */}
           <div className="flex flex-col pt-4">
             <h1 className="text-3xl md:text-4xl font-serif text-dark-maroon mb-2">{product.name}</h1>
-            <p className="text-grey-lavender mb-6">Product Code: {product.code}</p>
+            <p className="text-muted-maroon mb-6">Product Code: {product.code}</p>
             
             <div className="flex items-end gap-4 mb-8 pb-8 border-b border-cream-beige/50">
               <span className="text-3xl font-bold text-dark-maroon">₹{product.price}</span>
               {product.original_price > product.price && (
                 <>
-                  <span className="text-xl text-grey-lavender line-through mb-1">₹{product.original_price}</span>
-                  <span className="text-sm font-bold text-rose-pink bg-rose-pink/10 px-2 py-1 rounded mb-1">
+                  <span className="text-xl text-muted-maroon line-through mb-1">₹{product.original_price}</span>
+                  <span className="text-sm font-bold text-maroon-light bg-maroon-light/10 px-2 py-1 rounded mb-1">
                     {product.discount_percentage}% OFF
                   </span>
                 </>
@@ -142,7 +142,7 @@ export const ProductDetails = () => {
                         const imgIndex = product.images?.findIndex(img => img.image === color.image);
                         if(imgIndex >= 0) setActiveImage(imgIndex);
                       }}
-                      className={`w-10 h-10 rounded-full border-2 transition-all flex items-center justify-center ${selectedColor?.id === color.id ? 'border-bright-pink scale-110' : 'border-transparent hover:scale-110'}`}
+                      className={`w-10 h-10 rounded-full border-2 transition-all flex items-center justify-center ${selectedColor?.id === color.id ? 'border-maroon-light scale-110' : 'border-transparent hover:scale-110'}`}
                     >
                       <span 
                         className="w-8 h-8 rounded-full shadow-sm border border-black/10" 
@@ -159,7 +159,7 @@ export const ProductDetails = () => {
               <div className="mb-8">
                 <div className="flex justify-between items-center mb-3">
                   <span className="font-medium text-dark-maroon">Size</span>
-                  <button className="text-sm text-bright-pink hover:underline flex items-center">
+                  <button className="text-sm text-maroon-light hover:underline flex items-center">
                     <Ruler size={14} className="mr-1"/> Size Guide
                   </button>
                 </div>
@@ -176,7 +176,7 @@ export const ProductDetails = () => {
                             ? 'bg-gray-100 text-gray-400 border-gray-200 cursor-not-allowed line-through' 
                             : selectedSize === variant.size 
                               ? 'bg-dark-maroon text-white border-dark-maroon' 
-                              : 'bg-white text-dark-maroon border-cream-beige hover:border-bright-pink'
+                              : 'bg-white text-dark-maroon border-cream-beige hover:border-maroon-light'
                         }`}
                       >
                         {variant.size}
@@ -185,7 +185,7 @@ export const ProductDetails = () => {
                   })}
                 </div>
                 {selectedVariant && selectedVariant.stock <= 5 && selectedVariant.stock > 0 && (
-                  <p className="text-rose-pink text-sm mt-2">Only {selectedVariant.stock} left in stock!</p>
+                  <p className="text-maroon-light text-sm mt-2">Only {selectedVariant.stock} left in stock!</p>
                 )}
               </div>
             )}
@@ -194,9 +194,9 @@ export const ProductDetails = () => {
             <div className="mb-8 flex items-center gap-4">
               <span className="font-medium text-dark-maroon">Quantity</span>
               <div className="flex items-center border border-cream-beige rounded-full">
-                <button onClick={() => setQuantity(Math.max(1, quantity - 1))} className="w-10 h-10 flex items-center justify-center text-dark-maroon hover:text-bright-pink">-</button>
+                <button onClick={() => setQuantity(Math.max(1, quantity - 1))} className="w-10 h-10 flex items-center justify-center text-dark-maroon hover:text-maroon-light">-</button>
                 <span className="w-10 text-center font-medium">{quantity}</span>
-                <button onClick={() => setQuantity(quantity + 1)} className="w-10 h-10 flex items-center justify-center text-dark-maroon hover:text-bright-pink">+</button>
+                <button onClick={() => setQuantity(quantity + 1)} className="w-10 h-10 flex items-center justify-center text-dark-maroon hover:text-maroon-light">+</button>
               </div>
             </div>
 
@@ -220,7 +220,7 @@ export const ProductDetails = () => {
             {/* Description */}
             <div className="border-t border-cream-beige/50 pt-8">
               <h3 className="text-lg font-serif font-bold text-dark-maroon mb-4">Product Details</h3>
-              <div className="text-grey-lavender leading-relaxed space-y-4">
+              <div className="text-muted-maroon leading-relaxed space-y-4">
                 <p>{product.description}</p>
               </div>
             </div>

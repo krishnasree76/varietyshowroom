@@ -24,15 +24,15 @@ export const Footer = () => {
           
           {/* About */}
           <div>
-            <h3 className="text-2xl font-serif font-bold text-soft-pink mb-6">Variety Showroom</h3>
+            <h3 className="text-2xl font-serif font-bold text-cream-beige mb-6">Variety Showroom</h3>
             <p className="text-white-bg/80 mb-6 leading-relaxed">
               Trending fashion at affordable range. Complete family fashion shop open 365 days a year.
             </p>
             <div className="flex space-x-4">
-              <a href="https://www.instagram.com/variety_showroom" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-white-bg/10 flex items-center justify-center hover:bg-bright-pink hover:text-white transition-colors">
+              <a href="https://www.instagram.com/variety_showroom" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-white-bg/10 flex items-center justify-center hover:bg-maroon-light hover:text-white transition-colors">
                 <InstagramIcon />
               </a>
-              <a href="https://www.facebook.com/share/1JM2djFoc2/?mibextid=wwXIfr" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-white-bg/10 flex items-center justify-center hover:bg-bright-pink hover:text-white transition-colors">
+              <a href="https://www.facebook.com/share/1JM2djFoc2/?mibextid=wwXIfr" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-white-bg/10 flex items-center justify-center hover:bg-maroon-light hover:text-white transition-colors">
                 <FacebookIcon />
               </a>
             </div>
@@ -40,38 +40,38 @@ export const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-lg font-serif font-semibold text-soft-pink mb-6">Quick Links</h4>
+            <h4 className="text-lg font-serif font-semibold text-cream-beige mb-6">Quick Links</h4>
             <ul className="space-y-3">
-              <li><Link to="/about" className="text-white-bg/80 hover:text-bright-pink transition-colors">About Us</Link></li>
-              <li><Link to="/shop" className="text-white-bg/80 hover:text-bright-pink transition-colors">Shop Collection</Link></li>
-              <li><Link to="/orders" className="text-white-bg/80 hover:text-bright-pink transition-colors">Track Order</Link></li>
-              <li><Link to="/contact" className="text-white-bg/80 hover:text-bright-pink transition-colors">Contact Us</Link></li>
-              <li><Link to="/terms" className="text-white-bg/80 hover:text-bright-pink transition-colors">Terms & Conditions</Link></li>
+              <li><Link to="/about" className="text-white-bg/80 hover:text-maroon-light transition-colors">About Us</Link></li>
+              <li><Link to="/shop" className="text-white-bg/80 hover:text-maroon-light transition-colors">Shop Collection</Link></li>
+              <li><Link to="/orders" className="text-white-bg/80 hover:text-maroon-light transition-colors">Track Order</Link></li>
+              <li><Link to="/contact" className="text-white-bg/80 hover:text-maroon-light transition-colors">Contact Us</Link></li>
+              <li><Link to="/terms" className="text-white-bg/80 hover:text-maroon-light transition-colors">Terms & Conditions</Link></li>
             </ul>
           </div>
 
           {/* Contact Info */}
           <div>
-            <h4 className="text-lg font-serif font-semibold text-soft-pink mb-6">Contact Us</h4>
+            <h4 className="text-lg font-serif font-semibold text-cream-beige mb-6">Contact Us</h4>
             <ul className="space-y-4">
               <li className="flex items-start">
-                <MapPin size={20} className="text-bright-pink mt-1 mr-3 shrink-0" />
+                <MapPin size={20} className="text-maroon-light mt-1 mr-3 shrink-0" />
                 <span className="text-white-bg/80">Gannavaram Road, Kankipadu,<br/>Andhra Pradesh - 521151</span>
               </li>
               <li className="flex items-center">
-                <Phone size={20} className="text-bright-pink mr-3 shrink-0" />
-                <a href="tel:7893482089" className="text-white-bg/80 hover:text-bright-pink transition-colors">7893482089</a>
+                <Phone size={20} className="text-maroon-light mr-3 shrink-0" />
+                <a href="tel:7893482089" className="text-white-bg/80 hover:text-maroon-light transition-colors">7893482089</a>
               </li>
               <li className="flex items-center">
-                <Mail size={20} className="text-bright-pink mr-3 shrink-0" />
-                <a href="mailto:Varietyshowroom@gmail.com" className="text-white-bg/80 hover:text-bright-pink transition-colors">Varietyshowroom@gmail.com</a>
+                <Mail size={20} className="text-maroon-light mr-3 shrink-0" />
+                <a href="mailto:Varietyshowroom@gmail.com" className="text-white-bg/80 hover:text-maroon-light transition-colors">Varietyshowroom@gmail.com</a>
               </li>
             </ul>
           </div>
 
           {/* Location Map */}
           <div>
-            <h4 className="text-lg font-serif font-semibold text-soft-pink mb-6">Store Location</h4>
+            <h4 className="text-lg font-serif font-semibold text-cream-beige mb-6">Store Location</h4>
             <div className="rounded-lg overflow-hidden h-40 bg-white/10 relative group">
               <iframe 
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15303.499692487445!2d80.77054815!3d16.42531395!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a35f5c150bb91d9%3A0xa190d6b637d7a716!2sKankipadu%2C%20Andhra%20Pradesh!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
@@ -89,7 +89,7 @@ export const Footer = () => {
               href="https://maps.app.goo.gl/Xj6EU7Lfpc7h64gq8" 
               target="_blank" 
               rel="noreferrer"
-              className="inline-block mt-4 text-sm text-soft-pink hover:text-bright-pink transition-colors font-medium border-b border-transparent hover:border-bright-pink pb-1"
+              className="inline-block mt-4 text-sm text-cream-beige hover:text-maroon-light transition-colors font-medium border-b border-transparent hover:border-maroon-light pb-1"
             >
               Get Directions →
             </a>

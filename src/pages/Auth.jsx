@@ -14,7 +14,7 @@ export const Auth = () => {
       >
         <div className="text-center mb-8">
           <h1 className="text-3xl font-serif text-dark-maroon mb-2">{isLogin ? 'Welcome Back' : 'Create Account'}</h1>
-          <p className="text-grey-lavender">
+          <p className="text-muted-maroon">
             {isLogin ? 'Please sign in to access your account' : 'Join Variety Showroom for exclusive offers'}
           </p>
         </div>
@@ -23,23 +23,23 @@ export const Auth = () => {
           {!isLogin && (
             <div>
               <label className="block text-sm font-medium text-dark-maroon mb-1">Full Name</label>
-              <input type="text" className="w-full px-4 py-3 rounded-lg border border-cream-beige focus:outline-none focus:border-bright-pink transition-colors" placeholder="John Doe" />
+              <input type="text" className="w-full px-4 py-3 rounded-lg border border-cream-beige focus:outline-none focus:border-maroon-light transition-colors" placeholder="John Doe" />
             </div>
           )}
           
           <div>
             <label className="block text-sm font-medium text-dark-maroon mb-1">Email Address</label>
-            <input type="email" className="w-full px-4 py-3 rounded-lg border border-cream-beige focus:outline-none focus:border-bright-pink transition-colors" placeholder="you@example.com" />
+            <input type="email" className="w-full px-4 py-3 rounded-lg border border-cream-beige focus:outline-none focus:border-maroon-light transition-colors" placeholder="you@example.com" />
           </div>
           
           <div>
             <label className="block text-sm font-medium text-dark-maroon mb-1">Password</label>
-            <input type="password" className="w-full px-4 py-3 rounded-lg border border-cream-beige focus:outline-none focus:border-bright-pink transition-colors" placeholder="••••••••" />
+            <input type="password" className="w-full px-4 py-3 rounded-lg border border-cream-beige focus:outline-none focus:border-maroon-light transition-colors" placeholder="••••••••" />
           </div>
 
           {isLogin && (
             <div className="flex justify-end">
-              <a href="#" className="text-sm text-bright-pink hover:underline">Forgot password?</a>
+              <a href="#" className="text-sm text-maroon-light hover:underline">Forgot password?</a>
             </div>
           )}
 
@@ -49,11 +49,11 @@ export const Auth = () => {
         </form>
 
         <div className="mt-8 text-center border-t border-cream-beige/50 pt-6">
-          <p className="text-grey-lavender">
+          <p className="text-muted-maroon">
             {isLogin ? "Don't have an account? " : "Already have an account? "}
             <button 
               onClick={() => setIsLogin(!isLogin)}
-              className="text-bright-pink font-medium hover:underline"
+              className="text-maroon-light font-medium hover:underline"
             >
               {isLogin ? 'Sign Up' : 'Sign In'}
             </button>

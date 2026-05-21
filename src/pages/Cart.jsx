@@ -15,11 +15,11 @@ export const Cart = () => {
   if (cart.length === 0) {
     return (
       <div className="min-h-screen bg-white-bg pt-32 pb-24 flex flex-col items-center justify-center text-center">
-        <div className="w-24 h-24 bg-mainPink/10 rounded-full flex items-center justify-center mb-6">
-          <ShoppingBag size={48} className="text-bright-pink" />
+        <div className="w-24 h-24 bg-dark-maroon/10 rounded-full flex items-center justify-center mb-6">
+          <ShoppingBag size={48} className="text-maroon-light" />
         </div>
         <h2 className="text-3xl font-serif text-dark-maroon mb-4">Your cart is empty</h2>
-        <p className="text-grey-lavender mb-8 max-w-md">Looks like you haven't added anything to your cart yet. Discover our latest fashion collection.</p>
+        <p className="text-muted-maroon mb-8 max-w-md">Looks like you haven't added anything to your cart yet. Discover our latest fashion collection.</p>
         <Link to="/shop">
           <Button variant="accent" size="lg">Start Shopping</Button>
         </Link>
@@ -35,7 +35,7 @@ export const Cart = () => {
         <div className="flex flex-col lg:flex-row gap-12">
           {/* Cart Items */}
           <div className="lg:w-2/3">
-            <div className="hidden md:grid grid-cols-6 gap-4 pb-4 border-b border-cream-beige/50 text-sm font-medium text-grey-lavender">
+            <div className="hidden md:grid grid-cols-6 gap-4 pb-4 border-b border-cream-beige/50 text-sm font-medium text-muted-maroon">
               <div className="col-span-3">Product</div>
               <div className="col-span-1 text-center">Price</div>
               <div className="col-span-1 text-center">Quantity</div>
@@ -62,18 +62,18 @@ export const Cart = () => {
                         />
                       </Link>
                       <div className="flex flex-col justify-center flex-grow">
-                        <Link to={`/product/${item.product.id}`} className="text-lg font-medium text-dark-maroon hover:text-bright-pink transition-colors mb-1 line-clamp-2">
+                        <Link to={`/product/${item.product.id}`} className="text-lg font-medium text-dark-maroon hover:text-maroon-light transition-colors mb-1 line-clamp-2">
                           {item.product.name}
                         </Link>
                         {item.variant.color && (
-                          <p className="text-sm text-grey-lavender mb-1">Color: {item.variant.color.name}</p>
+                          <p className="text-sm text-muted-maroon mb-1">Color: {item.variant.color.name}</p>
                         )}
                         {item.product.has_sizes && item.variant.size && (
-                          <p className="text-sm text-grey-lavender">Size: {item.variant.size}</p>
+                          <p className="text-sm text-muted-maroon">Size: {item.variant.size}</p>
                         )}
                         <button 
                           onClick={() => removeFromCart(item.product.id, item.variant.id)}
-                          className="text-rose-pink hover:underline text-sm flex items-center mt-3 md:hidden"
+                          className="text-maroon-light hover:underline text-sm flex items-center mt-3 md:hidden"
                         >
                           <Trash2 size={14} className="mr-1" /> Remove
                         </button>
@@ -82,7 +82,7 @@ export const Cart = () => {
 
                     {/* Price */}
                     <div className="col-span-1 text-center font-medium w-full md:w-auto flex justify-between md:block">
-                      <span className="md:hidden text-grey-lavender">Price:</span>
+                      <span className="md:hidden text-muted-maroon">Price:</span>
                       ₹{item.product.price}
                     </div>
 
@@ -91,23 +91,23 @@ export const Cart = () => {
                       <div className="flex items-center border border-cream-beige rounded-full h-10">
                         <button 
                           onClick={() => updateQuantity(item.product.id, item.variant.id, Math.max(1, item.quantity - 1))} 
-                          className="w-8 h-full flex items-center justify-center text-dark-maroon hover:text-bright-pink"
+                          className="w-8 h-full flex items-center justify-center text-dark-maroon hover:text-maroon-light"
                         >-</button>
                         <span className="w-8 text-center text-sm font-medium">{item.quantity}</span>
                         <button 
                           onClick={() => updateQuantity(item.product.id, item.variant.id, item.quantity + 1)} 
-                          className="w-8 h-full flex items-center justify-center text-dark-maroon hover:text-bright-pink"
+                          className="w-8 h-full flex items-center justify-center text-dark-maroon hover:text-maroon-light"
                         >+</button>
                       </div>
                     </div>
 
                     {/* Total & Remove */}
                     <div className="col-span-1 flex justify-between md:justify-end items-center w-full md:w-auto">
-                      <span className="md:hidden text-grey-lavender">Subtotal:</span>
+                      <span className="md:hidden text-muted-maroon">Subtotal:</span>
                       <span className="font-bold text-dark-maroon text-lg">₹{item.product.price * item.quantity}</span>
                       <button 
                         onClick={() => removeFromCart(item.product.id, item.variant.id)}
-                        className="text-grey-lavender hover:text-rose-pink transition-colors hidden md:block ml-4"
+                        className="text-muted-maroon hover:text-maroon-light transition-colors hidden md:block ml-4"
                       >
                         <Trash2 size={18} />
                       </button>
@@ -125,16 +125,16 @@ export const Cart = () => {
               
               <div className="space-y-4 mb-6 text-dark-maroon">
                 <div className="flex justify-between">
-                  <span className="text-grey-lavender">Subtotal</span>
+                  <span className="text-muted-maroon">Subtotal</span>
                   <span className="font-medium">₹{subtotal}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-grey-lavender">Shipping Estimate</span>
+                  <span className="text-muted-maroon">Shipping Estimate</span>
                   <span className="font-medium">₹{shipping}</span>
                 </div>
                 <div className="border-t border-cream-beige/50 pt-4 flex justify-between items-center">
                   <span className="text-lg font-bold">Total</span>
-                  <span className="text-2xl font-bold text-bright-pink">₹{total}</span>
+                  <span className="text-2xl font-bold text-maroon-light">₹{total}</span>
                 </div>
               </div>
 

@@ -55,13 +55,13 @@ export const Shop = () => {
   return (
     <div className="min-h-screen bg-white-bg pt-24 pb-16">
       {/* Page Header */}
-      <div className="bg-mainPink/10 py-12 mb-12">
+      <div className="bg-dark-maroon/10 py-12 mb-12">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-serif text-dark-maroon mb-4">
             {slug ? categories.find(c => c.slug === slug)?.name || 'Our Collection' : 'Our Collection'}
           </h1>
-          <div className="flex items-center justify-center space-x-2 text-sm text-grey-lavender">
-            <Link to="/" className="hover:text-bright-pink transition-colors">Home</Link>
+          <div className="flex items-center justify-center space-x-2 text-sm text-muted-maroon">
+            <Link to="/" className="hover:text-maroon-light transition-colors">Home</Link>
             <span>/</span>
             <span className="text-dark-maroon">Shop</span>
             {slug && (
@@ -78,7 +78,7 @@ export const Shop = () => {
         <div className="flex flex-col lg:flex-row gap-8">
           {/* Mobile Filter Toggle */}
           <div className="lg:hidden flex justify-between items-center mb-4">
-            <span className="text-grey-lavender">{products.length} Products</span>
+            <span className="text-muted-maroon">{products.length} Products</span>
             <button 
               onClick={() => setIsFilterOpen(!isFilterOpen)}
               className="flex items-center gap-2 text-dark-maroon font-medium border border-cream-beige px-4 py-2 rounded-lg"
@@ -109,7 +109,7 @@ export const Shop = () => {
                   <li>
                     <Link 
                       to="/shop"
-                      className={`text-sm transition-colors ${activeCategory === 'all' || !activeCategory ? 'text-bright-pink font-semibold' : 'text-grey-lavender hover:text-dark-maroon'}`}
+                      className={`text-sm transition-colors ${activeCategory === 'all' || !activeCategory ? 'text-maroon-light font-semibold' : 'text-muted-maroon hover:text-dark-maroon'}`}
                       onClick={() => handleCategoryChange('all')}
                     >
                       All Categories
@@ -119,7 +119,7 @@ export const Shop = () => {
                     <li key={cat.id}>
                       <Link 
                         to={`/category/${cat.slug}`}
-                        className={`text-sm transition-colors ${activeCategory === cat.slug ? 'text-bright-pink font-semibold' : 'text-grey-lavender hover:text-dark-maroon'}`}
+                        className={`text-sm transition-colors ${activeCategory === cat.slug ? 'text-maroon-light font-semibold' : 'text-muted-maroon hover:text-dark-maroon'}`}
                         onClick={() => handleCategoryChange(cat.slug)}
                       >
                         {cat.name}
@@ -139,7 +139,7 @@ export const Shop = () => {
                     <button 
                       key={size}
                       onClick={() => handleSizeChange(size)}
-                      className={`px-3 py-1 border rounded text-sm transition-colors ${selectedSize === size ? 'border-bright-pink text-bright-pink bg-bright-pink/5 font-medium' : 'border-cream-beige text-grey-lavender hover:border-bright-pink hover:text-bright-pink'}`}
+                      className={`px-3 py-1 border rounded text-sm transition-colors ${selectedSize === size ? 'border-maroon-light text-maroon-light bg-maroon-light/5 font-medium' : 'border-cream-beige text-muted-maroon hover:border-maroon-light hover:text-maroon-light'}`}
                     >
                       {size}
                     </button>
@@ -152,9 +152,9 @@ export const Shop = () => {
           {/* Product Grid */}
           <div className="lg:w-3/4">
             <div className="hidden lg:flex justify-between items-center mb-8">
-              <span className="text-grey-lavender">{products.length} Products</span>
+              <span className="text-muted-maroon">{products.length} Products</span>
               <div className="flex items-center gap-2">
-                <span className="text-sm text-grey-lavender">Sort by:</span>
+                <span className="text-sm text-muted-maroon">Sort by:</span>
                 <select className="bg-transparent text-dark-maroon font-medium focus:outline-none cursor-pointer">
                   <option>Featured</option>
                   <option>New Arrivals</option>
@@ -183,7 +183,7 @@ export const Shop = () => {
             ) : (
               <div className="text-center py-20">
                 <h3 className="text-xl font-serif text-dark-maroon mb-2">No products found</h3>
-                <p className="text-grey-lavender">Try adjusting your filters or search criteria.</p>
+                <p className="text-muted-maroon">Try adjusting your filters or search criteria.</p>
               </div>
             )}
           </div>

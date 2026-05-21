@@ -1,43 +1,136 @@
+
 @import "tailwindcss";
 
+/* ================= THEME ================= */
 @theme {
-  --color-main-pink: #DE86AB;
-  --color-soft-pink: #E99FC1;
-  --color-bright-pink: #DC2A88;
-  --color-white-bg: #EEEDEE;
-  --color-cream-beige: #DAC9C3;
-  --color-dark-maroon: #61435D;
-  --color-grey-lavender: #95949E;
-  --color-rose-pink: #E04F97;
 
+  /* ===== Brand Colors ===== */
+  --color-dark-maroon: #4A2D1F;
+  --color-maroon-light: #6A3A2F;
+  --color-muted-maroon: #8A6B5D;
+
+  /* ===== Background Colors ===== */
+  --color-white-bg: #F5EBDD;
+  --color-cream-beige: #EADCCF;
+
+  /* ===== Extra Utility Colors ===== */
+  --color-light-beige: #FAF4EE;
+  --color-border-beige: #E7D8CB;
+  --color-brown-soft: #6A4A3A;
+
+  /* ===== Fonts ===== */
   --font-sans: "Outfit", system-ui, sans-serif;
   --font-serif: "Playfair Display", Georgia, serif;
+
+  /* ===== Shadows ===== */
+  --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.08);
+  --shadow-card: 0 12px 35px rgba(74, 45, 31, 0.08);
+
+  /* ===== Radius ===== */
+  --radius-card: 1.5rem;
 }
 
+/* ================= BASE ================= */
 @layer base {
+
+  * {
+    @apply box-border;
+  }
+
   html {
     scroll-behavior: smooth;
   }
-  
+
   body {
-    @apply bg-white-bg text-dark-maroon font-sans antialiased;
+    @apply bg-white-bg text-dark-maroon font-sans antialiased overflow-x-hidden;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-serif font-medium;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-serif font-semibold tracking-tight;
+  }
+
+  button {
+    @apply cursor-pointer transition-all duration-300;
+  }
+
+  img {
+    @apply select-none;
+  }
+
+  a {
+    @apply transition-colors duration-300;
   }
 }
 
+/* ================= COMPONENTS ================= */
+@layer components {
+
+  /* ===== Primary Button ===== */
+  .btn-primary {
+    @apply bg-dark-maroon text-white px-8 py-3 rounded-xl font-semibold shadow-lg hover:scale-105 hover:bg-maroon-light;
+  }
+
+  /* ===== Secondary Button ===== */
+  .btn-secondary {
+    @apply border-2 border-dark-maroon text-dark-maroon px-8 py-3 rounded-xl font-semibold bg-white/40 backdrop-blur-sm hover:bg-white;
+  }
+
+  /* ===== Section Title ===== */
+  .section-title {
+    @apply text-4xl md:text-5xl font-serif text-dark-maroon leading-tight;
+  }
+
+  /* ===== Section Subtitle ===== */
+  .section-subtitle {
+    @apply text-muted-maroon text-lg mt-3;
+  }
+
+  /* ===== Card ===== */
+  .card-soft {
+    @apply bg-white rounded-[1.5rem] shadow-[0_12px_35px_rgba(74,45,31,0.08)] border border-border-beige;
+  }
+
+  /* ===== Input ===== */
+  .input-soft {
+    @apply w-full border border-border-beige bg-white px-4 py-3 rounded-xl outline-none focus:ring-2 focus:ring-dark-maroon;
+  }
+}
+
+/* ================= UTILITIES ================= */
 @layer utilities {
+
+  /* ===== Glass Effect ===== */
   .glass-effect {
-    @apply bg-white/80 backdrop-blur-md border border-white/20 shadow-[0_8px_30px_rgb(0,0,0,0.04)];
+    @apply bg-white/70 backdrop-blur-md border border-white/20 shadow-[0_8px_30px_rgb(0,0,0,0.05)];
   }
-  
+
+  /* ===== Text Gradient ===== */
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-bright-pink to-rose-pink;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-dark-maroon to-maroon-light;
   }
-  
+
+  /* ===== Hover Lift ===== */
   .hover-lift {
-    @apply transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl;
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl;
+  }
+
+  /* ===== Hide Scrollbar ===== */
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* ===== Container ===== */
+  .container-soft {
+    @apply max-w-7xl mx-auto px-4 md:px-6 lg:px-8;
   }
 }

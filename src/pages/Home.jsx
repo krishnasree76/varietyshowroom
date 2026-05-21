@@ -5,7 +5,7 @@ import { ArrowRight, Star, Truck, ShieldCheck, Clock } from 'lucide-react';
 import { productService } from '../services/productService';
 import { ProductCard } from '../components/ui/ProductCard';
 import { Button } from '../components/ui/Button';
-
+import banner from "../assets/banner.jpg";
 export const Home = () => {
   const [heroImages, setHeroImages] = useState([]);
   const [categories, setCategories] = useState([]);
@@ -38,69 +38,89 @@ export const Home = () => {
   return (
     <div className="min-h-screen bg-white-bg">
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        <AnimatePresence mode="wait">
-          {heroImages.map((hero, index) => (
-            index === currentHero && (
-              <motion.div
-                key={hero.id}
-                initial={{ opacity: 0, scale: 1.05 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 1 }}
-                className="absolute inset-0"
-              >
-                <div className="absolute inset-0 bg-black/40 z-10" />
-                <img
-                  src={hero.image}
-                  alt="Variety Showroom"
-                  className="w-full h-full object-cover"
-                />
-              </motion.div>
-            )
-          ))}
-        </AnimatePresence>
+      <section className="bg-dark-maroon text-white md:hidden relative py-10">
+        <div className="flex items-center px-6">
+          {/* Left Content */}
+          <div className="w-3/5">
+            <span className="text-[10px] uppercase tracking-[0.2em] text-cream-beige">
+              Welcome to Variety Showroom
+            </span>
 
-        <div className="container relative z-20 mx-auto px-4 text-center mt-20">
-          <motion.span
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.2, duration: 0.8 }}
-            className="inline-block text-soft-pink font-medium tracking-[0.2em] uppercase mb-4"
-          >
-            Welcome to Variety Showroom
-          </motion.span>
-          <motion.h1
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.4, duration: 0.8 }}
-            className="text-5xl md:text-7xl lg:text-8xl font-serif text-white mb-6 leading-tight max-w-4xl mx-auto"
-          >
-            Trending fashion at affordable range
-          </motion.h1>
-          <motion.p
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.6, duration: 0.8 }}
-            className="text-white/90 text-lg md:text-xl mb-10 max-w-2xl mx-auto font-light"
-          >
-            Complete family fashion shop open 365 days. Discover our latest collection of premium clothing.
-          </motion.p>
-          <motion.div
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.8, duration: 0.8 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
-          >
+            <h1 className="font-serif text-2xl font-bold mt-2 text-cream-beige">
+              Trending Fashion
+            </h1>
+
+            <p className="mt-3 text-xs italic text-white/80">
+              Complete family fashion shop open 365 days.
+            </p>
+
             <Link to="/shop">
-              <Button variant="accent" size="lg" className="w-full sm:w-auto">Shop Now</Button>
+              <button className="mt-4 px-4 py-2 text-xs bg-cream-beige text-dark-maroon rounded-lg font-semibold">
+                Shop Now
+              </button>
             </Link>
-            <Link to="/category/women">
-              <Button variant="secondary" size="lg" className="w-full sm:w-auto border-white text-white hover:bg-white/10 hover:text-white bg-transparent">
-                Explore Collection
-              </Button>
-            </Link>
-          </motion.div>
+          </div>
+
+          {/* Right Image */}
+          <div className="w-2/5 flex justify-center translate-y-8">
+  <Link to="/shop">
+    <div className="w-[100px] h-[140px] overflow-hidden rounded shadow-xl">
+      <img
+        src={banner}
+        alt="Variety Showroom"
+        className="w-full h-full object-cover"
+      />
+    </div>
+  </Link>
+</div>
+        </div>
+      </section>
+
+      {/* ================= DESKTOP HERO ================= */}
+      <section className="bg-dark-maroon text-white py-20 hidden md:block">
+        <div className="container mx-auto px-4 flex justify-between items-center">
+          {/* Left Content */}
+          <div className="max-w-xl">
+            <span className="text-sm uppercase tracking-[0.3em] text-cream-beige">
+              Welcome to Variety Showroom
+            </span>
+
+            <h1 className="font-serif text-6xl font-bold mt-4 leading-tight">
+              Trending Fashion
+              <br />
+              At Affordable Range
+            </h1>
+
+            <p className="italic mt-4 text-white/80">
+              Complete family fashion shop open 365 days.
+              Discover our latest collection of premium clothing.
+            </p>
+
+            <div className="mt-8 flex gap-4">
+              <Link to="/shop">
+                <button className="btn-primary">
+                  Shop Now
+                </button>
+              </Link>
+
+              <Link to="/category/women">
+                <button className="btn-secondary text-white border-white hover:text-dark-maroon">
+                  Explore Collection
+                </button>
+              </Link>
+            </div>
+          </div>
+
+          {/* Right Image */}
+          <Link to="/shop">
+            <div className="w-40 h-60 overflow-hidden rounded shadow-xl">
+              <img
+                src={banner}
+                alt="Variety Showroom"
+                className="w-full h-full object-cover hover:scale-110 transition duration-500"
+              />
+            </div>
+          </Link>
         </div>
       </section>
 
@@ -110,9 +130,9 @@ export const Home = () => {
           <div className="flex justify-between items-end mb-12">
             <div>
               <h2 className="text-4xl font-serif text-dark-maroon mb-2">Trending Categories</h2>
-              <p className="text-grey-lavender">Discover what's hot right now</p>
+              <p className="text-muted-maroon">Discover what's hot right now</p>
             </div>
-            <Link to="/shop" className="hidden md:flex items-center text-bright-pink font-medium hover:text-rose-pink transition-colors">
+            <Link to="/shop" className="hidden md:flex items-center text-maroon-light font-medium hover:text-maroon-light transition-colors">
               View All <ArrowRight size={20} className="ml-2" />
             </Link>
           </div>
@@ -127,14 +147,14 @@ export const Home = () => {
                 transition={{ delay: index * 0.1, duration: 0.5 }}
               >
                 <Link to={`/category/${cat.slug}`} className="group block text-center">
-                  <div className="relative aspect-square overflow-hidden rounded-full bg-cream-beige/30 mb-4 p-2 border-2 border-transparent group-hover:border-bright-pink transition-all duration-300">
+                  <div className="relative aspect-square overflow-hidden rounded-full bg-cream-beige/30 mb-4 p-2 border-2 border-transparent group-hover:border-maroon-light transition-all duration-300">
                     <img
                       src={cat.image}
                       alt={cat.name}
                       className="w-full h-full object-cover rounded-full group-hover:scale-110 transition-transform duration-700"
                     />
                   </div>
-                  <h3 className="font-serif text-lg text-dark-maroon group-hover:text-bright-pink transition-colors">{cat.name}</h3>
+                  <h3 className="font-serif text-lg text-dark-maroon group-hover:text-maroon-light transition-colors">{cat.name}</h3>
                 </Link>
               </motion.div>
             ))}
@@ -147,7 +167,7 @@ export const Home = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-serif text-dark-maroon mb-4">Latest Arrivals</h2>
-            <p className="text-grey-lavender max-w-2xl mx-auto">Explore our newest additions and fresh styles.</p>
+            <p className="text-muted-maroon max-w-2xl mx-auto">Explore our newest additions and fresh styles.</p>
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8">
@@ -163,7 +183,7 @@ export const Home = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-serif text-dark-maroon mb-4">Popular Collection</h2>
-            <p className="text-grey-lavender max-w-2xl mx-auto">Handpicked styles combining elegance, comfort, and the latest trends.</p>
+            <p className="text-muted-maroon max-w-2xl mx-auto">Handpicked styles combining elegance, comfort, and the latest trends.</p>
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8">
@@ -181,91 +201,91 @@ export const Home = () => {
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-24 bg-[#DE86AB] relative overflow-hidden">
-        {/* Decorative Background */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-0 w-72 h-72 bg-white rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 right-0 w-72 h-72 bg-[#61435D] rounded-full blur-3xl"></div>
+      <section className="py-24 bg-white-bg relative overflow-hidden">
+  {/* Decorative Background */}
+  <div className="absolute inset-0 opacity-40">
+    <div className="absolute top-0 left-0 w-72 h-72 bg-cream-beige rounded-full blur-3xl"></div>
+    <div className="absolute bottom-0 right-0 w-72 h-72 bg-border-beige rounded-full blur-3xl"></div>
+  </div>
+
+  <div className="container mx-auto px-4 relative z-10">
+    {/* Heading */}
+    <div className="text-center mb-16">
+      <h2 className="text-4xl md:text-5xl font-bold text-dark-maroon mb-4">
+        Why Choose Variety Showroom
+      </h2>
+
+      <p className="text-muted-maroon text-lg max-w-2xl mx-auto">
+        Trending fashion at affordable range for your complete family.
+      </p>
+    </div>
+
+    {/* Cards */}
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+      {/* Card 1 */}
+      <div className="card-soft hover-lift p-8 text-center">
+        <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-dark-maroon flex items-center justify-center">
+          <Star size={40} className="text-white-bg" />
         </div>
 
-        <div className="container mx-auto px-4 relative z-10">
-          {/* Heading */}
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              Why Choose Variety Showroom
-            </h2>
+        <h3 className="text-2xl font-bold text-dark-maroon mb-4">
+          Premium Quality
+        </h3>
 
-            <p className="text-[#FDF7FA] text-lg max-w-2xl mx-auto">
-              Trending fashion at affordable range for your complete family.
-            </p>
-          </div>
+        <p className="text-muted-maroon leading-relaxed">
+          Handpicked fabrics and flawless stitching for elegant comfort.
+        </p>
+      </div>
 
-          {/* Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-
-            {/* Card 1 */}
-            <div className="bg-[#FDF7FA] rounded-3xl p-8 text-center shadow-xl hover:scale-105 transition-all duration-300 border border-[#F3D3E2]">
-              <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-[#E99FC1] flex items-center justify-center">
-                <Star size={40} className="text-[#61435D]" />
-              </div>
-
-              <h3 className="text-2xl font-bold text-[#61435D] mb-4">
-                Premium Quality
-              </h3>
-
-              <p className="text-[#7A5C73] leading-relaxed">
-                Handpicked fabrics and flawless stitching for elegant comfort.
-              </p>
-            </div>
-
-            {/* Card 2 */}
-            <div className="bg-[#FDF7FA] rounded-3xl p-8 text-center shadow-xl hover:scale-105 transition-all duration-300 border border-[#F3D3E2]">
-              <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-[#E99FC1] flex items-center justify-center">
-                <Truck size={40} className="text-[#61435D]" />
-              </div>
-
-              <h3 className="text-2xl font-bold text-[#61435D] mb-4">
-                Fast Delivery
-              </h3>
-
-              <p className="text-[#7A5C73] leading-relaxed">
-                Reliable doorstep delivery with smooth shopping experience.
-              </p>
-            </div>
-
-            {/* Card 3 */}
-            <div className="bg-[#FDF7FA] rounded-3xl p-8 text-center shadow-xl hover:scale-105 transition-all duration-300 border border-[#F3D3E2]">
-              <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-[#E99FC1] flex items-center justify-center">
-                <ShieldCheck size={40} className="text-[#61435D]" />
-              </div>
-
-              <h3 className="text-2xl font-bold text-[#61435D] mb-4">
-                Secure Payments
-              </h3>
-
-              <p className="text-[#7A5C73] leading-relaxed">
-                Safe and trusted payment methods for worry-free checkout.
-              </p>
-            </div>
-
-            {/* Card 4 */}
-            <div className="bg-[#FDF7FA] rounded-3xl p-8 text-center shadow-xl hover:scale-105 transition-all duration-300 border border-[#F3D3E2]">
-              <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-[#E99FC1] flex items-center justify-center">
-                <Clock size={40} className="text-[#61435D]" />
-              </div>
-
-              <h3 className="text-2xl font-bold text-[#61435D] mb-4">
-                Open 365 Days
-              </h3>
-
-              <p className="text-[#7A5C73] leading-relaxed">
-                Always open to serve your family fashion shopping needs.
-              </p>
-            </div>
-
-          </div>
+      {/* Card 2 */}
+      <div className="card-soft hover-lift p-8 text-center">
+        <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-dark-maroon flex items-center justify-center">
+          <Truck size={40} className="text-white-bg" />
         </div>
-      </section>
+
+        <h3 className="text-2xl font-bold text-dark-maroon mb-4">
+          Fast Delivery
+        </h3>
+
+        <p className="text-muted-maroon leading-relaxed">
+          Reliable doorstep delivery with smooth shopping experience.
+        </p>
+      </div>
+
+      {/* Card 3 */}
+      <div className="card-soft hover-lift p-8 text-center">
+        <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-dark-maroon flex items-center justify-center">
+          <ShieldCheck size={40} className="text-white-bg" />
+        </div>
+
+        <h3 className="text-2xl font-bold text-dark-maroon mb-4">
+          Secure Payments
+        </h3>
+
+        <p className="text-muted-maroon leading-relaxed">
+          Safe and trusted payment methods for worry-free checkout.
+        </p>
+      </div>
+
+      {/* Card 4 */}
+      <div className="card-soft hover-lift p-8 text-center">
+        <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-dark-maroon flex items-center justify-center">
+          <Clock size={40} className="text-white-bg" />
+        </div>
+
+        <h3 className="text-2xl font-bold text-dark-maroon mb-4">
+          Open 365 Days
+        </h3>
+
+        <p className="text-muted-maroon leading-relaxed">
+          Always open to serve your family fashion shopping needs.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
     </div>
   );
 };

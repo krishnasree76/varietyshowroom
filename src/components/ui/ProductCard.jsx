@@ -41,7 +41,7 @@ export const ProductCard = ({ product }) => {
       {/* Badges */}
       <div className="absolute top-3 left-3 z-10 flex flex-col gap-2">
         {product.discount_percentage > 0 && (
-          <span className="bg-rose-pink text-white text-xs font-bold px-2 py-1 rounded">
+          <span className="bg-maroon-light text-white text-xs font-bold px-2 py-1 rounded">
             -{product.discount_percentage}%
           </span>
         )}
@@ -70,7 +70,7 @@ export const ProductCard = ({ product }) => {
           <button 
             onClick={handleWishlist}
             className={`w-10 h-10 rounded-full flex items-center justify-center bg-white shadow-lg transition-colors ${
-              isWishlisted ? 'text-rose-pink' : 'text-dark-maroon hover:text-bright-pink'
+              isWishlisted ? 'text-maroon-light' : 'text-dark-maroon hover:text-maroon-light'
             }`}
           >
             <Heart size={20} fill={isWishlisted ? "currentColor" : "none"} />
@@ -79,7 +79,7 @@ export const ProductCard = ({ product }) => {
           <button 
             onClick={handleQuickAdd}
             disabled={product.is_sold_out}
-            className="h-10 px-5 rounded-full bg-dark-maroon text-white flex items-center justify-center shadow-lg hover:bg-bright-pink transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-sm font-medium"
+            className="h-10 px-5 rounded-full bg-dark-maroon text-white flex items-center justify-center shadow-lg hover:bg-maroon-light transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-sm font-medium"
           >
             <ShoppingBag size={18} className="mr-2" />
             {product.has_sizes ? 'Select Size' : 'Quick Add'}
@@ -90,17 +90,17 @@ export const ProductCard = ({ product }) => {
       {/* Product Info */}
       <div className="flex flex-col flex-grow">
         <div className="flex justify-between items-start mb-1">
-          <Link to={`/category/${product.category_name}`} className="text-xs text-grey-lavender uppercase tracking-wider hover:text-bright-pink">
+          <Link to={`/category/${product.category_name}`} className="text-xs text-muted-maroon uppercase tracking-wider hover:text-maroon-light">
             {product.category_name}
           </Link>
         </div>
-        <Link to={`/product/${product.id}`} className="text-lg font-serif font-medium text-dark-maroon leading-tight mb-2 hover:text-bright-pink transition-colors line-clamp-1">
+        <Link to={`/product/${product.id}`} className="text-lg font-serif font-medium text-dark-maroon leading-tight mb-2 hover:text-maroon-light transition-colors line-clamp-1">
           {product.name}
         </Link>
         <div className="mt-auto flex items-center gap-2">
           <span className="text-lg font-bold text-dark-maroon">₹{product.price}</span>
           {product.original_price > product.price && (
-            <span className="text-sm text-grey-lavender line-through">₹{product.original_price}</span>
+            <span className="text-sm text-muted-maroon line-through">₹{product.original_price}</span>
           )}
         </div>
         
@@ -116,7 +116,7 @@ export const ProductCard = ({ product }) => {
               />
             ))}
             {product.available_colors.length > 4 && (
-              <span className="text-xs text-grey-lavender flex items-center ml-1">
+              <span className="text-xs text-muted-maroon flex items-center ml-1">
                 +{product.available_colors.length - 4}
               </span>
             )}

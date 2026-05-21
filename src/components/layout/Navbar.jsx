@@ -41,7 +41,7 @@ export const Navbar = () => {
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden text-[#61435D]"
+          className="md:hidden text-dark-maroon"
           onClick={() => setIsMobileMenuOpen(true)}
         >
           <Menu size={26} />
@@ -50,7 +50,7 @@ export const Navbar = () => {
         {/* Logo */}
         <Link
           to="/"
-          className="text-2xl md:text-3xl font-bold text-[#61435D] tracking-tight"
+          className="text-2xl md:text-3xl font-bold text-dark-maroon tracking-tight"
         >
           Variety Showroom
         </Link>
@@ -62,7 +62,7 @@ export const Navbar = () => {
             <Link
               key={link.name}
               to={link.path}
-              className="text-[#61435D] hover:text-[#DC2A88] font-medium transition-all duration-300"
+              className="text-dark-maroon hover:text-maroon-light font-medium transition-all duration-300"
             >
               {link.name}
             </Link>
@@ -74,7 +74,7 @@ export const Navbar = () => {
             onMouseEnter={() => setIsCategoryOpen(true)}
             onMouseLeave={() => setIsCategoryOpen(false)}
           >
-            <button className="flex items-center gap-1 text-[#61435D] hover:text-[#DC2A88] font-medium transition-all duration-300">
+            <button className="flex items-center gap-1 text-dark-maroon hover:text-maroon-light font-medium transition-all duration-300">
               Categories
               <ChevronDown size={18} />
             </button>
@@ -86,7 +86,7 @@ export const Navbar = () => {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 15 }}
                   transition={{ duration: 0.2 }}
-                  className="absolute top-10 left-0 w-64 bg-white rounded-2xl shadow-2xl border border-pink-100 overflow-hidden"
+                  className="absolute top-10 left-0 w-64 bg-white rounded-2xl shadow-2xl border border-border-beige overflow-hidden"
                 >
                   {mockCategories.map((category) => (
                     <Link
@@ -94,7 +94,7 @@ export const Navbar = () => {
                       to={`/category/${category
                         .toLowerCase()
                         .replace(/\s+/g, '-')}`}
-                      className="block px-5 py-4 text-[#61435D] hover:bg-[#FDEBF4] hover:text-[#DC2A88] transition-all duration-200 border-b border-pink-50 last:border-none"
+                      className="block px-5 py-4 text-dark-maroon hover:bg-light-beige hover:text-maroon-light transition-all duration-200 border-b border-border-beige last:border-none"
                     >
                       {category}
                     </Link>
@@ -108,32 +108,32 @@ export const Navbar = () => {
         {/* Icons */}
         <div className="flex items-center space-x-4 md:space-x-6">
 
-          <button className="text-[#61435D] hover:text-[#DC2A88] transition-all duration-300">
+          <button className="text-dark-maroon hover:text-maroon-light transition-all duration-300">
             <Search size={21} />
           </button>
 
           <Link
             to="/profile"
-            className="hidden md:block text-[#61435D] hover:text-[#DC2A88] transition-all duration-300"
+            className="hidden md:block text-dark-maroon hover:text-maroon-light transition-all duration-300"
           >
             <User size={21} />
           </Link>
 
           <Link
             to="/wishlist"
-            className="hidden md:block text-[#61435D] hover:text-[#DC2A88] transition-all duration-300"
+            className="hidden md:block text-dark-maroon hover:text-maroon-light transition-all duration-300"
           >
             <Heart size={21} />
           </Link>
 
           <Link
             to="/cart"
-            className="relative text-[#61435D] hover:text-[#DC2A88] transition-all duration-300"
+            className="relative text-dark-maroon hover:text-maroon-light transition-all duration-300"
           >
             <ShoppingBag size={21} />
 
             {cartCount > 0 && (
-              <span className="absolute -top-2 -right-2 bg-[#DC2A88] text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center shadow-md">
+              <span className="absolute -top-2 -right-2 bg-maroon-light text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center shadow-md">
                 {cartCount}
               </span>
             )}
@@ -164,13 +164,13 @@ export const Navbar = () => {
             >
               {/* Header */}
               <div className="flex justify-between items-center mb-10">
-                <h2 className="text-2xl font-bold text-[#61435D]">
+                <h2 className="text-2xl font-bold text-dark-maroon">
                   Menu
                 </h2>
 
                 <button
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-[#61435D]"
+                  className="text-dark-maroon"
                 >
                   <X size={26} />
                 </button>
@@ -184,7 +184,7 @@ export const Navbar = () => {
                     key={link.name}
                     to={link.path}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="text-lg font-medium text-[#61435D] border-b border-pink-100 pb-3"
+                    className="text-lg font-medium text-dark-maroon border-b border-border-beige pb-3"
                   >
                     {link.name}
                   </Link>
@@ -192,7 +192,7 @@ export const Navbar = () => {
 
                 {/* Categories */}
                 <div>
-                  <h3 className="text-lg font-semibold text-[#DC2A88] mb-3">
+                  <h3 className="text-lg font-semibold text-maroon-light mb-3">
                     Categories
                   </h3>
 
@@ -204,7 +204,7 @@ export const Navbar = () => {
                           .toLowerCase()
                           .replace(/\s+/g, '-')}`}
                         onClick={() => setIsMobileMenuOpen(false)}
-                        className="text-[#61435D] hover:text-[#DC2A88] transition-all duration-200"
+                        className="text-dark-maroon hover:text-maroon-light transition-all duration-200"
                       >
                         {category}
                       </Link>
@@ -214,12 +214,12 @@ export const Navbar = () => {
               </nav>
 
               {/* Bottom Links */}
-              <div className="mt-auto flex flex-col space-y-4 pt-8 border-t border-pink-100">
+              <div className="mt-auto flex flex-col space-y-4 pt-8 border-t border-border-beige">
 
                 <Link
                   to="/profile"
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="flex items-center text-[#61435D]"
+                  className="flex items-center text-dark-maroon"
                 >
                   <User size={20} className="mr-3" />
                   Profile
@@ -228,7 +228,7 @@ export const Navbar = () => {
                 <Link
                   to="/wishlist"
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="flex items-center text-[#61435D]"
+                  className="flex items-center text-dark-maroon"
                 >
                   <Heart size={20} className="mr-3" />
                   Wishlist

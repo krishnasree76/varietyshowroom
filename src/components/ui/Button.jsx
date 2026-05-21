@@ -6,9 +6,9 @@ export const Button = ({ children, variant = 'primary', size = 'md', className, 
   const baseClasses = 'inline-flex items-center justify-center font-medium transition-all duration-300 rounded-full active:scale-95';
   
   const variants = {
-    primary: 'bg-dark-maroon text-white hover:bg-bright-pink hover:shadow-[0_8px_20px_rgba(220,42,136,0.3)]',
-    secondary: 'bg-white text-dark-maroon border border-cream-beige hover:border-bright-pink hover:text-bright-pink',
-    accent: 'bg-bright-pink text-white hover:bg-rose-pink shadow-[0_4px_14px_rgba(220,42,136,0.2)] hover:shadow-[0_6px_20px_rgba(220,42,136,0.4)]',
+    primary: 'bg-dark-maroon text-white hover:bg-maroon-light hover:shadow-[0_8px_20px_rgba(220,42,136,0.3)]',
+    secondary: 'bg-white text-dark-maroon border border-cream-beige hover:border-maroon-light hover:text-maroon-light',
+    accent: 'bg-maroon-light text-white hover:bg-maroon-light shadow-[0_4px_14px_rgba(220,42,136,0.2)] hover:shadow-[0_6px_20px_rgba(220,42,136,0.4)]',
     outline: 'border-2 border-dark-maroon text-dark-maroon hover:bg-dark-maroon hover:text-white',
   };
 
